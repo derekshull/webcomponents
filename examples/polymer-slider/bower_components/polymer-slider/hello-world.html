@@ -1,0 +1,21 @@
+<dom-module id="hello-world">
+  <style>
+    * {
+      color:red;
+    }
+  </style>
+  <template>
+    <!-- local DOM for your element -->
+
+    <div>
+      <content></content>
+    </div> <!-- data bindings in local DOM -->
+  </template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "hello-world",
+  });
+</script>

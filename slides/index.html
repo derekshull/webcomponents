@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Web Components & Polymer Slides</title>
+        <script type="text/javascript" src="bower_components/platform/platform.js"></script>
+        <link rel="import" href="bower_components/polymer/polymer.html">
+        <link rel='import' href='src/ninja-presentation.html'>
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,400italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="./skins/ninjapresentation.skin.samplepresentation.css">
+        <link rel="import" href="./imgslider.html">
+        <style type="text/css">
+            body {
+                font-size: 12px;
+            }
+            * {margin: 0; padding: 0;}
+            .circleShape {
+                float: left;
+                width: 300px;
+                border-radius: 50%;
+                shape-outside: circle();
+                shape-margin: 0px;
+            }
+            .iconImage {
+                vertical-align: middle;
+                margin-top: -10px;
+            }
+            a, a:hover {
+                text-decoration:underline;
+                color:inherit;
+            }
+            .shadowfilter { 
+                -webkit-filter: drop-shadow(6px 6px 6px rgba(255,255,255,0.5));
+                filter: url(shadow.svg#drop-shadow); 
+            }
+            ninja-slide {
+                position: relative;
+            }
+            footer {
+                position:absolute;
+                padding:10px;
+                background:rgba(255,255,255,0.8);
+                width:100%;
+                bottom:0px;
+                left:0px;
+                color:#0D47A1;
+                font-size: 23px;
+            }
+            footer li {
+                display:inline-block;
+                vertical-align: middle;
+                width:49%;
+                line-height: normal;
+                padding: 5px;
+            }
+            small {
+                font-size: 35px;
+            }
+
+            .code {
+                padding:10px;
+                background: #86a3d0;
+                color:black;
+            }
+
+            hr {
+                width: 80%;
+                margin: 15px auto;
+            }
+        </style>
+    </head>
+    <body>
+
+        <ninja-presentation font='Lato'>
+
+            <ninja-slide align='center' font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h1 style="font-size:75px; margin-bottom:10px;">Web Components & Polymer</h1>
+                <h5>The Future of Building Web Apps, Today!</h5>
+                <br><br>
+                <h6><img src="./img/aristotle_wide.svg" style="width:200px; padding-bottom:1px;">&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;Matt Shull</h6>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1" style="line-height:75px;">
+                <img src="./img/MattShull.png" alt="profile image" class="circleShape" style="margin:0 auto;">
+                <span style="float:left; text-align:center;width:65%;margin-left:35px;">
+                    <img src="./img/aristotle_wide.svg" style="width:53%;">
+                    <hr style="background:white; color:white;">
+                    <svg style="max-width:100%; margin-bottom:-18px; height:67px;" viewBox="0 0 136 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="thinkful_logo" sketch:type="MSArtboardGroup" fill="#FFFFFF">
+                          <path d="M9,20 L12,20 L12,8.02439022 L3,8.02439022 L3,3 L20,3 L20,0 L0,0 L0,11 L9,11 L9,20 L9,20 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+                          <path d="M17,8.02439022 L17,25 L9,25 L9,28 L20,28 L20,11 L28,11 L28,0 L25,0 L25,8.02439022 L17,8.02439022 L17,8.02439022 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+                          <path d="M38.5,11.5 L42,11.5 L42,20 L45,20 L45,11.5 L48.5,11.5 L48.5,9 L38.5,9 L38.5,12 L38.5,11.5 L38.5,11.5 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+                          <path d="M66,9.0000004 L66.0000001,20.0000004 L69,20 L68.9999999,9 L66,9.0000004 L66,9.0000004 Z" id="Rectangle-path" sketch:type="MSShapeGroup"></path>
+                          <path d="M54.9999999,13 L54.8867273,9 L52,9 L52,20 L55,20 L55,15.5 L59,15.5 L59,20 L62,20 L62,9 L59,9 L59,13 L54.9999999,13 L54.9999999,13 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+                          <path d="M100,20 L103,20 L103,16 L108,16 L108,13.6222048 L103,13.6222048 L103,11.5 L108.5,11.5 L108.5,9 L100,9 L100,20 L100,20 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+                          <path d="M80,15.5 L76.0307269,9 L73,9 L73,20 L76.0307269,20 L76.0307269,13.5 L80,20 L83,20 L83,9 L80,9 L80,15.5 L80,15.5 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+                          <path d="M130,9 L127,9 L127,20 L135.5,20 L135.5,17.5 L130,17.5 L130,9 L130,9 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+                          <path d="M93.5,9.0192589 L90,13.9999999 L90,9.0192589 L87,9.0192589 L87,20 L90,20.0000004 L90,14.9999999 L93.5,20.0000004 L97,20 L93,14.5096297 L97,9.0192589 L93.5,9.0192589 L93.5,9.0192589 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+                          <path d="M117.5,20.5 C120.537566,20.5 123,18 123,15 L123,9 L120,9 L120,14.5 C120,16 119.5,17.5 117.5,17.5 C115.5,17.5 115,16 115,14.5 L115,9 L112,9 L112,15 C112,18 114.462434,20.5 117.5,20.5 L117.5,20.5 Z" id="Oval-1" sketch:type="MSShapeGroup"></path>
+                        </g>
+                    </svg>
+                    <hr style="background:white; color:white;">
+                    <small>
+                    <img src="./img/twitter.png" style="width:75px; height:75px;" class="iconImage"> <a href="http://www.twitter.com/TheMattShull" target="_blank">TheMattShull</a>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+                    <img src="./img/globe.png" style="width:55px; height:55px;" class="iconImage"> <a href="http://www.mattshull.com" target="_blank">mattshull.com</a></small>
+                </span>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1" align="center">
+                <h2>Follow Along!</h2>
+                <br>
+                <br>
+                <a href="http://www.mattshull.com/webcomponents" target="_blank">mattshull.com/webcomponents</a>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1" align='center'>
+                <h2>What are web components?</h2>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1" align='center'>
+                <h2>Are they production ready?</h2>
+                <br>
+                <img src="./img/production.png" style="max-width:100%; background:white; border-radius:5px;">
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Web Components</h2><br>
+                <ul class="col-md-8">
+                    <li style="margin-bottom:25px;"><small>Custom elements with super powers</small></li>
+                    <li style="margin-bottom:25px;"><small>Uses HTML, CSS, and Javascript</small></li>
+                    <li style="margin-bottom:25px;"><small>Reusable and shareable!</small></li>
+                    <li><small>It's like calculus</small></li>
+                </ul>
+                <div class="col-md-4" style="text-align:center;">
+                    <img src="./img/SuperWC.png" style="width:100%;">
+                </div>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1"  align='center'>
+                <img src="./img/bootstrapcode.png" style="height:650px;">
+
+
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Image Slider Web Component</h2>
+                <br>
+                <section class="clearfix">
+                    <article class="col-md-6 code"><small>
+                        &lt;img-slider&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src=&quot;image1.jpg&quot;&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src=&quot;image2.jpg&quot;&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src=&quot;image3.jpg&quot;&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src=&quot;image4.jpg&quot;&gt;<br>
+                        &lt;/img-slider&gt;</small>
+                    </article>
+                    <article class="col-md-6">
+                        <img-slider>
+                            <img src="http://lorempixel.com/400/200/abstract/1/">
+                            <img src="http://lorempixel.com/400/200/abstract/2/">
+                            <img src="http://lorempixel.com/400/200/abstract/3/">
+                            <img src="http://lorempixel.com/400/200/abstract/4/">
+                        </img-slider>
+                    </article>
+                </section>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">The Future of Development</h2><br>
+                <section class="clearfix">
+                <ul class="col-md-12">
+                    <small>
+                    <li>Easier syntax</li><br>
+                    <li>The future of development</li><br>
+                    <li>Create standard styles and functionality</li><br>
+                    </small>
+                </ul>
+                </section>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Web Component Specs</h2><br>
+                <section class="clearfix">
+                <ul class="col-md-6">
+                    <small>
+                    <li>Templates</li><br>
+                    <li>Custom Elements</li><br>
+                    <li>Shadow DOM</li><br>
+                    <li>HTML Imports</li>
+                    </small>
+                </ul>
+                <div class="col-md-6" style="text-align:center;">
+                    <img src="./img/captian.png" style="width:80%;">
+                </div>
+                </section>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Templates</h2><br>
+                <section class="clearfix">
+                    <div class="col-md-6">
+                        <div class="code">
+                            <small>
+                                &lt;template&gt;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;style&gt;&lt;/style&gt;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Some HTML Markup --&gt;<br>
+                                &lt;/template&gt;
+                            </small>
+                        </div>
+                    </div>
+                    <ul class="col-md-6">
+                        <small>
+                            <li>Inactive markup</li><br>
+                            <li>Made active using a script</li><br>
+                            <li>Media not downloaded until active</li>
+                        </small>
+                    </ul>
+                </section>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Custom Elements</h2><br>
+                <section class="clearfix">
+                    <div class="col-md-6">
+                        <img src="./img/bootstrapcode.png" style="width:100%;">
+                    </div>
+                    <div class="col-md-6 code">
+                        <small>
+                        &lt;img-slider&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src=&quot;image1.jpg&quot;&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src=&quot;image2.jpg&quot;&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src=&quot;image3.jpg&quot;&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src=&quot;image4.jpg&quot;&gt;<br>
+                        &lt;/img-slider&gt;
+                        </small>
+                    </div>
+                </section>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Custom Elements</h2><br>
+                <section class="clearfix">
+                    <ul class="col-md-10">
+                        <li>Extending native HTML elements</li><br>
+                        <li>Extend the basic style/functionality</li><br>
+                        <li>3 key differences</li>
+                    </ul>
+                </section>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Shadow DOM</h2><br>
+                <div class="clearfix">
+                    <ul class="col-md-6"><small>
+                        <li style="margin-bottom:35px;">Provides DOM encapsulation</li>
+                        <li style="margin-bottom:35px;" class="fragment">Solves the StackOverflow Dilemma</li>
+                        <li style="margin-bottom:35px;" class="fragment">&lt;content&gt; part of Shadow DOM spec</li>
+                        <li style="margin-bottom:35px;" class="fragment">Coding the Shadow DOM</li>
+                        </small>
+                    </ul>
+                    <div class="col-md-6">
+                        <img src="./img/incog.png" style="width:100%;">
+                    </div>
+                </div>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1" align="center">
+                <h2 style="text-align:center;">HTML Imports</h2><br>
+                <div class="code">&lt;link rel="import" href="./imgslider.html"&gt;</div>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Web Component Specs</h2><br>
+                <section class="clearfix">
+                <ul class="col-md-6">
+                    <small>
+                    <li>Templates</li><br>
+                    <li>Custom Elements</li><br>
+                    <li>Shadow DOM</li><br>
+                    <li>HTML Imports</li>
+                    </small>
+                </ul>
+                <div class="col-md-6" style="text-align:center;">
+                    <img src="./img/legos.jpg">
+                </div>
+                </section>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <section class="clearfix">
+                    <div style="text-align:left"><img src="./img/polymer.svg" style="width:250px;"></div>
+                    <div style="text-align:center"><img src="./img/x-tag-logo.png" style="width:250px;"></div>
+                    <div style="text-align:right"><img src="./img/logoBig.png" style="width:250px;"></div>
+                </section>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Polymer</h2><br>
+                <section class="clearfix">
+                    <ul class="col-md-6"><small>
+                        <li>Developed by Google</li><br>
+                        <li class="fragment">A web component to build web components</li><br>
+                        <li class="fragment">Easier syntax for web component super powers</li></small>
+                    </ul>
+                    <div class="col-md-6" style="text-align:center"><img src="./img/polymer1.png" style="width:100%"></div>
+                </section>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;"><img src="./img/javascript.png" style="width:200px">&nbsp;&nbsp;&nbsp; vs &nbsp;&nbsp;&nbsp;<img class="shadowfilter" src="./img/polymer.svg" style="width:200px;"></h2><br>
+                <ul class="col-md-8 col-md-offset-2">
+                    <small>
+                        <li>index.html includes & styling</li><br>
+                        <li>&lt;dom-module&gt;</li><br>
+                        <li>Polymer function</li>
+                    </small>
+                </ul>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">&lt;cool-button&gt;</h2><br>
+                <ul class="col-md-8">
+                    <small>
+                        <li>Basic style web component</li><br>
+                        <li>Extend with Polymer</li>
+                    </small>
+                </ul>
+                <div class="col-md-4">
+                    <button style="width:100%; height:150px; color:black;">Not a Cool Button</button>
+                </div>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">&lt;lorem-pixel&gt;</h2><br>
+                <ul class="col-md-10 col-md-offset-1">
+                    <small>
+                        <li>Add custom attributes</li><br>
+                        <li>Computed Properties</li><br>
+                        <li>Data Binding</li><br>
+                        <li>Retrieve placeholder image</li>
+                    </small>
+                </ul>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">&lt;google-youtube&gt;</h2><br>
+                <ul class="col-md-10 col-md-offset-1">
+                    <small>
+                        <li>Complex API</li><br>
+                        <li>Retrieve Youtube video</li><br>
+                        <li>More Google services available</li>
+                    </small>
+                </ul>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Polymer Iron Element</h2><br>
+                <ul class="col-md-6">
+                    <small>
+                        <li>Visual and Non-visual</li><br>
+                        <li>Layout, user input, scaffolding</li><br>
+                        <li>&lt;iron-ajax&gt;</li>
+                    </small>
+                </ul>
+                <div class="col-md-6" style="text-align:right;">
+                    <img src="./img/ironelements.png" style="width: 80%;">
+                </div>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Polymer Paper Element</h2><br>
+                <ul class="col-md-6">
+                    <small>
+                        <li>Visual Elements</li><br>
+                        <li>Incorporates Material Design</li><br>
+                        <li>&lt;paper-textarea&gt;</li>
+                    </small>
+                </ul>
+                <div class="col-md-6" style="text-align:right;">
+                    <img src="./img/paperelements.png" style="width: 82%;">
+                </div>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <div class="clearfix" style="margin-bottom:15px;">
+                    <div class="col-md-4" style="text-align:center;">
+                        <img src="./img/googleelements.png" style="width:80%;">
+                    </div>
+                    <div class="col-md-4" style="text-align:center;">
+                        <img src="./img/goldelements.png" style="width:80%;">
+                    </div>
+                </div>
+
+                <div class="clearfix">
+                    <div class="col-md-4" style="text-align:center;">
+                        <img src="./img/neonelements.png" style="width:80%;">
+                    </div>
+                    <div class="col-md-4" style="text-align:center;">
+                        <img src="./img/platinumelements.png" style="width:85%;">
+                    </div>
+                    <div class="col-md-4" style="text-align:center;">
+                        <img src="./img/molecules.png" style="width:80%;">
+                    </div>
+                </div>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Web Components in Production</h2><br>
+                <div class="col-md-8 col-md-offset-2" style="text-align:center;">
+                    <img src="./img/production.png" style="background:white; border-radius: 5px; max-width:100%;">
+                </div>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Web Components in Production</h2><br>
+                <ul>
+                    <li>Github</li>
+                </ul>
+                <img src="./img/github.png" class="fragment" style="width:100%;">
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Web Components in Production</h2><br>
+                <ul>
+                    <li>Github</li>
+                </ul>
+                <img src="./img/github-source.png" style="width:100%;">
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Web Components in Production</h2><br>
+                <ul class="col-md-12">
+                    <li>GitHub</li>
+                    <li>Polymer Project</li>
+                </ul>
+                <div class="col-md-12" style="text-align:center;">
+                    <img src="./img/polymer-site.png" style="width:70%;">
+                </div>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Web Components in Production</h2><br>
+                <ul>
+                    <li>GitHub</li>
+                    <li>Polymer Project</li>
+                </ul>
+                <div class="col-md-12" style="text-align:center;">
+                    <img src="./img/polymer.png" style="width:100%;">
+                </div>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Web Components in Production</h2><br>
+                <ul class="col-md-6">
+                    <li>Github</li><br>
+                    <li>Polymer Project</li><br>
+                    <li>Google I/O</li>
+                </ul>
+                <div class="col-md-6">
+                    <img src="./img/googleio.png" style="width:100%;">
+                </div>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Web Components in Production</h2><br>
+                <h3 style="text-align:center;">These slides!</h3><br><br><br><br>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Things to Consider</h2>
+                <ul>
+                    <li>Browser compatibility</li>
+                </ul>
+                <img src="./img/browsersupport.png" style="width:100%;">
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Things to Consider</h2>
+                <ul>
+                    <li>Browser compatibility</li>
+                </ul>
+                <img src="./img/browsercompat.png" style="width:100%;">
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Things to Consider</h2><br>
+                <ul class="col-md-6">
+                    <li>Performance</li>
+                    <ul style="margin-left:35px; margin-top:10px;">
+                        <li style="margin-bottom:10px;">19kb-42kb gzipped</li>
+                        <li style="margin-bottom:10px;">3 times faster than v0.5</li>
+                        <li>Use vulcanize!</li>
+                    </ul>
+                </ul>
+                <div class="col-md-6" style="text-align:center;">
+                    <img src="./img/flash.png" style="height:400px;">
+                </div>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Things to Consider</h2><br>
+                <ul class="col-md-6">
+                    <li>Browser compatibility</li><br>
+                    <li>Performance</li><br>
+                    <li>Accessibility</li>
+                </ul>
+                <div class="col-md-6" style="text-align:center;">
+                    <img src="./img/access.png" style="width:80%; background:white; border-radius:5px; padding:15px;">
+                </div>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1">
+                <h2 style="text-align:center;">Get Started!</h2><br>
+                <ul class="col-md-6">
+                    <li>&lt;start-experimenting&gt;</li><br>
+                    <li>&lt;start-implementing&gt;</li><br>
+                    <li>&lt;start-sharing&gt;</li>
+                </ul>
+                <div class="col-md-6" style="text-align:center;">
+                    <img src="./img/dexter.jpg" style="border-radius:5px; width:400px;">
+                </div>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+
+            <ninja-slide font="Lato" background="#0D47A1" color="#ecf0f1" style="text-align:center;">
+                <div>
+                    <a href="http://www.mattshull.com/webcomponents" target="_blank">mattshull.com/webcomponents</a>
+                </div>
+                <br><br>
+                <div>
+                    <img src="./img/twitter.png" style="width:75px; height:75px;" class="iconImage"> <a href="http://www.twitter.com/TheMattShull" target="_blank">TheMattShull</a>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+                    <img src="./img/globe.png" style="width:55px; height:55px;" class="iconImage"> <a href="http://www.mattshull.com" target="_blank">mattshull.com</a>
+                </div>
+
+                <footer>
+                    <ul>
+                        <li style="text-align:left; float:left;">Web Components and Polymer</li>
+                        <li style="text-align:right; float:right;">Aristotle</li>
+                    </ul>
+                </footer>
+            </ninja-slide>
+        </ninja-presentation>
+    </body>
+</html>
